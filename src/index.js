@@ -1,51 +1,23 @@
 /**
- * Represents a book.
+ * 자판기 상품
  * @constructor
- * @param {string} title - The title of the book.
- * @param {string} author - The author of the book.
+ * @param {number} price - 상품의 가격
+ * @param {number} quantity - 상품의 수량
+ * @param {string} name - 상품의 이름
  */
-function Book(title, author) {}
+function Item(price, quantity, name) {}
 
 /**
- * Both of these will link to the bar function.
- * @see {@link bar}
- * @see bar
- */
-function foo() {}
-
-// Use the inline {@link} tag to include a link within a free-form description.
-/**
- * @see {@link foo} for further information.
- * @see {@link http://github.com|GitHub}
- */
-function bar() {}
-
-/**
- * Generic dairy product.
+ * 자판기
  * @constructor
+ * @param {Item[]} items - 상품들
  */
-function DairyProduct() {}
+function VendingMachine(items = []) {}
 
 /**
- * Check whether the dairy product is solid at room temperature.
+ * 상품을 구매하는 함수
  * @abstract
- * @return {boolean}
+ * @param {number} price - 상품의 가격
+ * @return {string}
  */
-DairyProduct.prototype.isSolid = function () {
-	throw new Error('must be implemented by subclass!');
-};
-
-/**
- * Cool, refreshing milk.
- * @constructor
- * @augments DairyProduct
- */
-function Milk() {}
-
-/**
- * Check whether milk is solid at room temperature.
- * @return {boolean} Always returns false.
- */
-Milk.prototype.isSolid = function () {
-	return false;
-};
+VendingMachine.prototype.getItem = function (price) {};
